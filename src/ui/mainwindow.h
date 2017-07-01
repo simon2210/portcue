@@ -16,6 +16,9 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+private slots:
+    void handleBtnClicked();
+
 private:
     QWidget * m_centralWidget;
     QLayout * m_centralLayout;
