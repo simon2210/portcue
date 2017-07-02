@@ -1,6 +1,9 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "maintoolbarwidget.h"
+
+#include <QGridLayout>
 #include <QMainWindow>
 #include <QPushButton>
 
@@ -17,12 +20,14 @@ public:
     ~MainWindow();
 
 private slots:
-    void handleBtnClicked();
+    void handleNewProjectClicked();
+    void handleSaveProjectClicked();
+    void handleOpenProjectClicked();
 
 private:
-    QWidget * m_centralWidget;
-    QLayout * m_centralLayout;
-    QPushButton * m_pushbtn;
+    QWidget * m_centralWidget = nullptr;
+    QGridLayout * m_centralLayout = nullptr;
+    MainToolbarWidget * m_toolbar = nullptr;
 };
 
 #endif // MAINWINDOW_H

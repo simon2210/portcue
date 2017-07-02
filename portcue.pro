@@ -25,10 +25,23 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         src/main.cpp \
-        src/ui/mainwindow.cpp
+        src/ui/mainwindow.cpp \
+    src/data/cue.cpp \
+    src/data/project.cpp \
+    src/io/projectwriter.cpp \
+    src/io/projectreader.cpp \
+    src/ui/maintoolbarwidget.cpp \
+    src/data/audiocue.cpp
 
 HEADERS += \
-        src/ui/mainwindow.h
+        src/ui/mainwindow.h \
+    src/data/cue.h \
+    src/data/project.h \
+    src/io/projectwriter.h \
+    src/io/projectreader.h \
+    src/ui/maintoolbarwidget.h \
+    src/io/xmlproperties.h \
+    src/data/audiocue.h
 
 FORMS +=
 
