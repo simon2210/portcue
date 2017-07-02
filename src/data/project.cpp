@@ -33,5 +33,14 @@ void Project::AddCue(Cue * cue, int idx)
 
 void Project::RemoveCue(int idx)
 {
-    m_cues->removeAt(idx);
+    if(idx >= 0 && idx < m_cues->length())
+        m_cues->removeAt(idx);
+}
+
+void Project::RemoveCue(Cue *cue)
+{
+    int idx = m_cues->indexOf(cue);
+
+    if(idx != -1)
+        m_cues->removeAt(idx);
 }

@@ -31,7 +31,9 @@ SOURCES += \
     src/io/projectwriter.cpp \
     src/io/projectreader.cpp \
     src/ui/maintoolbarwidget.cpp \
-    src/data/audiocue.cpp
+    src/data/audiocue.cpp \
+    src/projectmanager.cpp \
+    src/ui/projectcreationdialog.cpp
 
 HEADERS += \
         src/ui/mainwindow.h \
@@ -41,7 +43,10 @@ HEADERS += \
     src/io/projectreader.h \
     src/ui/maintoolbarwidget.h \
     src/io/xmlproperties.h \
-    src/data/audiocue.h
+    src/data/audiocue.h \
+    src/projectmanager.h \
+    src/ui/projectcreationdialog.h \
+    src/applicationconfig.h
 
 FORMS +=
 

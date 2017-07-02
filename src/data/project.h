@@ -22,6 +22,7 @@ public:
     QList<Cue *> * Cues() const;
     void AddCue(Cue * cue, int idx);
     void RemoveCue(int idx);
+    void RemoveCue(Cue * cue);
 
 
 private:
