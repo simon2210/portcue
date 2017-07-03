@@ -33,7 +33,11 @@ SOURCES += \
     src/ui/maintoolbarwidget.cpp \
     src/data/audiocue.cpp \
     src/projectmanager.cpp \
-    src/ui/projectcreationdialog.cpp
+    src/ui/projectcreationdialog.cpp \
+    src/ui/projecteditorwindow.cpp \
+    src/ui/uihelper.cpp \
+    src/ui/maincuelistwidget.cpp \
+    src/ui/maincuetablemodel.cpp
 
 HEADERS += \
         src/ui/mainwindow.h \
@@ -46,7 +50,11 @@ HEADERS += \
     src/data/audiocue.h \
     src/projectmanager.h \
     src/ui/projectcreationdialog.h \
-    src/applicationconfig.h
+    src/applicationconfig.h \
+    src/ui/projecteditorwindow.h \
+    src/ui/uihelper.h \
+    src/ui/maincuelistwidget.h \
+    src/ui/maincuetablemodel.h
 
 FORMS +=
 

@@ -1,5 +1,3 @@
 /* Stylesheet */
 
-/*QPushButton {
-background-color: red;
-}*/
+QTableView::item:focus { outline: none; }
