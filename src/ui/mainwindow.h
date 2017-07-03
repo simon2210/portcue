@@ -1,9 +1,9 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include "maincuelistwidget.h"
-#include "maintoolbarwidget.h"
-#include "projecteditorwindow.h"
+#include "cuelistwidget.h"
+#include "editortoolbarwidget.h"
+#include "projecteditordialog.h"
 #include "src/projectmanager.h"
 
 #include <QGridLayout>
@@ -29,6 +29,7 @@ private slots:
     void handleSaveProjectClicked();
     void handleOpenProjectClicked();
 	void handleProjectEditorClicked();
+	void handleProjectLoaded();
 
 private:
 	void createActions();
@@ -39,8 +40,7 @@ private:
     QWidget * m_centralWidget = nullptr;
     QGridLayout * m_centralLayout = nullptr;
 	QToolBar * m_toolbar = nullptr;
-	MainCueListWidget * m_cueListWidget = nullptr;
-	ProjectEditorWindow * m_editor = nullptr;
+	CueListWidget * m_cueListWidget = nullptr;
 	QAction * m_newProjectAct = nullptr;
 	QAction * m_saveProjectAct = nullptr;
 	QAction * m_openProjectAct = nullptr;

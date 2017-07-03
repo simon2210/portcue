@@ -2,34 +2,33 @@
 #define PROJECTEDITORWINDOW_H
 
 #include "src/projectmanager.h"
+#include "cuelistwidget.h"
+#include "editortoolbarwidget.h"
 
 #include <QAction>
+#include <QDialog>
 #include <QGridLayout>
-#include <QMainWindow>
 #include <QToolBar>
 
 namespace Ui {
 	class ProjectEditorWindow;
 }
 
-class ProjectEditorWindow : public QMainWindow
+class ProjectEditorDialog : public QDialog
 {
-    Q_OBJECT
+	Q_OBJECT
 public:
-    explicit ProjectEditorWindow(QWidget *parent = nullptr);
+	explicit ProjectEditorDialog(QWidget *parent = nullptr);
 
 private slots:
 	void handleSaveProjectClicked();
 
 private:
-	void createActions();
-	void createToolbar();
-
 	ProjectManager * m_projectManager = nullptr;
 
-	QWidget * m_centralWidget = nullptr;
 	QGridLayout * m_centralLayout = nullptr;
-	QToolBar * m_toolbar = nullptr;
+	EditorToolbarWidget * m_toolbar = nullptr;
+	CueListWidget * m_cueListWidget = nullptr;
 	QAction * m_saveProjectAct = nullptr;
 };
 

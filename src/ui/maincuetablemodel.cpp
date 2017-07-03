@@ -1,24 +1,11 @@
 #include "maincuetablemodel.h"
 
 MainCueTableModel::MainCueTableModel(QObject *parent)
-	: QAbstractTableModel(parent) { }
-
-void MainCueTableModel::SetDataSource(QList<Cue *> *cues)
-{
-	m_cues = cues;
-
-	if(!isEmpty())
-		emit layoutChanged();
-}
-
-bool MainCueTableModel::isEmpty() const
-{
-	return m_cues == nullptr || m_cues->isEmpty();
-}
+	: CueDataTableModel(parent) { }
 
 int MainCueTableModel::rowCount(const QModelIndex &/*parent*/) const
 {
-	return isEmpty() ? 0 : m_cues->length();
+	return IsEmpty() ? 0 : GetCues()->length();
 }
 
 int MainCueTableModel::columnCount(const QModelIndex &/*parent*/) const
@@ -31,7 +18,7 @@ QVariant MainCueTableModel::data(const QModelIndex &index, int role) const
 	if (role != Qt::DisplayRole && role != Qt::EditRole)
 		return {};
 
-	const auto cue = m_cues->at(index.row());
+	const auto cue = GetCues()->at(index.row());
 	switch (index.column()) {
 		case 0: return cue->Id();
 		case 1: return cue->Description();

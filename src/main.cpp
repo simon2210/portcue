@@ -28,3 +28,10 @@ int main(int argc, char *argv[])
     // Exec application
     return app.exec();
 }
+
+//Known Bugs:
+// Rows bleiben, wenn kleineres Projekt NEU erstellt wird
+
+//ToDo:
+// Editor vervollständigen (Add und Remove auch für MainCueList testen)
+// IEditable für Datenobjekte?

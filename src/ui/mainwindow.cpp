@@ -1,3 +1,4 @@
+#include "maincuetablemodel.h"
 #include "mainwindow.h"
 #include "uihelper.h"
 
@@ -5,6 +6,7 @@
 #include <QMediaPlayer>
 #include <QFileDialog>
 #include <QMessageBox>
+#include <QApplication>
 
 #include "projectcreationdialog.h"
 #include "src/applicationconfig.h"
@@ -21,13 +23,19 @@ MainWindow::MainWindow(QWidget *parent) :
 	m_centralWidget = new QWidget(this);
 	m_centralLayout = new QGridLayout(m_centralWidget);
 	m_toolbar = new QToolBar(this);
-	m_cueListWidget = new MainCueListWidget(this);
+	m_cueListWidget = new CueListWidget(
+		new MainCueTableModel(this), this
+	);
 
 	createActions();
 	createToolbar();
 
-	connect(m_projectManager, &ProjectManager::ProjectLoaded, this, [=]{
-		m_cueListWidget->SetDataSource(m_projectManager->GetProject()->Cues());
+	connect(m_projectManager, &ProjectManager::ProjectLoaded,
+			this, &MainWindow::handleProjectLoaded);
+
+	connect(m_cueListWidget, &CueListWidget::SelectedCueChanged,
+			this, [=](Cue * cue) {
+				qDebug(cue->Id().toLatin1());
 	});
 
 	m_centralLayout->addWidget(m_cueListWidget);
@@ -40,7 +48,9 @@ MainWindow::~MainWindow()
 
 void MainWindow::handleNewProjectClicked()
 {
-	ProjectCreationDialog dlg(this, Qt::WindowFlags());
+	ProjectCreationDialog dlg(
+		this, Qt::WindowFlags() & (~Qt::WindowContextHelpButtonHint)
+	);
 	if(dlg.exec() == QDialog::Accepted) {
 		QString name = dlg.GetProjectName();
 		m_projectManager->CreateProject(name);
@@ -94,10 +104,16 @@ void MainWindow::handleOpenProjectClicked()
 
 void MainWindow::handleProjectEditorClicked()
 {
-	if(m_editor == nullptr) {
-		m_editor = new ProjectEditorWindow(this);
-	}
-	m_editor->show();
+	ProjectEditorDialog dlg(this);
+	dlg.exec();
+}
+
+void MainWindow::handleProjectLoaded()
+{
+	Project * project = m_projectManager->GetProject();
+	m_cueListWidget->SetDataSource(project->Cues());
+	this->setWindowTitle(project->Name());
+	m_openEditorAct->setEnabled(true);
 }
 
 void MainWindow::createActions()
@@ -115,6 +131,8 @@ void MainWindow::createActions()
 	m_saveProjectAct->setCheckable(false);
 	m_openProjectAct->setCheckable(false);
 	m_openEditorAct->setCheckable(false);
+
+	m_openEditorAct->setEnabled(false);
 
 	connect(m_newProjectAct, &QAction::triggered,
 			this, &MainWindow::handleNewProjectClicked);

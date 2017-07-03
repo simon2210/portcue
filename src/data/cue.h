@@ -22,6 +22,7 @@ public:
     };
 
     explicit Cue(QObject *parent = nullptr);
+	virtual ~Cue() {}
 
     QString Id() const;
     void SetId(const QString &id);

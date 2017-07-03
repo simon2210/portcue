@@ -7,6 +7,10 @@
 #include <QLineEdit>
 #include <QPushButton>
 
+namespace Ui {
+	class ProjectCreationDialog;
+}
+
 class ProjectCreationDialog : public QDialog
 {
     Q_OBJECT

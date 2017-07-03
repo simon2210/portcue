@@ -30,14 +30,16 @@ SOURCES += \
     src/data/project.cpp \
     src/io/projectwriter.cpp \
     src/io/projectreader.cpp \
-    src/ui/maintoolbarwidget.cpp \
     src/data/audiocue.cpp \
     src/projectmanager.cpp \
     src/ui/projectcreationdialog.cpp \
-    src/ui/projecteditorwindow.cpp \
     src/ui/uihelper.cpp \
-    src/ui/maincuelistwidget.cpp \
-    src/ui/maincuetablemodel.cpp
+    src/ui/maincuetablemodel.cpp \
+    src/ui/cuelistwidget.cpp \
+    src/ui/cuedatatablemodel.cpp \
+    src/ui/editorcuetablemodel.cpp \
+    src/ui/editortoolbarwidget.cpp \
+    src/ui/projecteditordialog.cpp
 
 HEADERS += \
         src/ui/mainwindow.h \
@@ -45,16 +47,19 @@ HEADERS += \
     src/data/project.h \
     src/io/projectwriter.h \
     src/io/projectreader.h \
-    src/ui/maintoolbarwidget.h \
     src/io/xmlproperties.h \
     src/data/audiocue.h \
     src/projectmanager.h \
     src/ui/projectcreationdialog.h \
     src/applicationconfig.h \
-    src/ui/projecteditorwindow.h \
     src/ui/uihelper.h \
-    src/ui/maincuelistwidget.h \
-    src/ui/maincuetablemodel.h
+    src/ui/maincuetablemodel.h \
+    src/data/irealcue.h \
+    src/ui/cuelistwidget.h \
+    src/ui/cuedatatablemodel.h \
+    src/ui/editorcuetablemodel.h \
+    src/ui/editortoolbarwidget.h \
+    src/ui/projecteditordialog.h
 
 FORMS +=
 

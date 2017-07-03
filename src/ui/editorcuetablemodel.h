@@ -1,16 +1,14 @@
-#ifndef MAINCUETABLEMODEL_H
-#define MAINCUETABLEMODEL_H
+#ifndef EDITORCUETABLEMODEL_H
+#define EDITORCUETABLEMODEL_H
 
-#include "src/data/cue.h"
 #include "cuedatatablemodel.h"
 
-#define COL_COUNT 4
+#define COL_COUNT 2
 
-class MainCueTableModel : public CueDataTableModel
+class EditorCueTableModel : public CueDataTableModel
 {
-
 public:
-	explicit MainCueTableModel(QObject *parent = nullptr);
+	explicit EditorCueTableModel(QObject *parent = nullptr);
 
 	// QAbstractItemModel interface
 	int rowCount(const QModelIndex &parent) const override;
@@ -21,4 +19,4 @@ public:
 	) const override;
 };
 
-#endif // MAINCUETABLEMODEL_H
+#endif // EDITORCUETABLEMODEL_H
