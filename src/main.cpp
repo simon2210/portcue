@@ -31,9 +31,8 @@ int main(int argc, char *argv[])
 }
 
 //Known Bugs:
-// Rows bleiben, wenn kleineres Projekt NEU erstellt wird
+// SelectedCue vom CueListWidget falsch, wenn Cues hinzugefügt oder gelöscht
 
 //ToDo:
 // Editor vervollständigen (Add und Remove auch für MainCueList testen)
-// Up + Down geht nur einmal, weil selected List verloren geht
 // IEditable für Datenobjekte?

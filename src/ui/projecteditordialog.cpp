@@ -10,10 +10,10 @@ ProjectEditorDialog::ProjectEditorDialog(QWidget *parent)
 	this->setWindowTitle(tr("Editor"));
 	m_projectManager = ProjectManager::Instance();
 	m_centralLayout = new QGridLayout(this);
+	m_hSplitter = new QSplitter(Qt::Horizontal);
 	m_toolbar = new EditorToolbarWidget(this);
 	m_cueListWidget = new CueListWidget(new EditorCueTableModel(this), this);
-
-	m_cueListWidget->SetDataSource(m_projectManager->GetProject()->Cues());
+	m_cueEditWidget = new CueEditWidget(this);
 
 	connect(m_toolbar, &EditorToolbarWidget::SaveProjectClicked,
 			this, &ProjectEditorDialog::handleSaveProjectClicked);
@@ -33,8 +33,17 @@ ProjectEditorDialog::ProjectEditorDialog(QWidget *parent)
 	connect(m_projectManager, &ProjectManager::CueMoved,
 			this, &ProjectEditorDialog::handleCueMoved);
 
-	m_centralLayout->addWidget(m_toolbar);
-	m_centralLayout->addWidget(m_cueListWidget);
+	connect(m_cueListWidget, &CueListWidget::SelectedCueChanged,
+			this, &ProjectEditorDialog::handleSelectedCueChanged);
+
+	m_cueListWidget->SetDataSource(m_projectManager->GetProject()->Cues());
+
+	m_hSplitter->addWidget(m_cueListWidget);
+	m_hSplitter->addWidget(m_cueEditWidget);
+
+	m_centralLayout->addWidget(m_toolbar, 0, 0, 1, 2, Qt::AlignTop);
+	m_centralLayout->addWidget(m_hSplitter, 1, 0, 1, 2, Qt::AlignTop);
+	m_centralLayout->setRowStretch(1, 1);
 }
 
 void ProjectEditorDialog::handleSaveProjectClicked()
@@ -103,4 +112,9 @@ void ProjectEditorDialog::handleCueListChanged()
 void ProjectEditorDialog::handleCueMoved(int from, int to)
 {
 	m_cueListWidget->RefreshData(from, to);
+}
+
+void ProjectEditorDialog::handleSelectedCueChanged(Cue *selectedCue)
+{
+	m_cueEditWidget->SetDataSource(selectedCue);
 }

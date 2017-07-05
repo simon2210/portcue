@@ -39,7 +39,10 @@ SOURCES += \
     src/ui/cuedatatablemodel.cpp \
     src/ui/editorcuetablemodel.cpp \
     src/ui/editortoolbarwidget.cpp \
-    src/ui/projecteditordialog.cpp
+    src/ui/projecteditordialog.cpp \
+    src/ui/cueeditwidget.cpp \
+    src/ui/cuemetawidget.cpp \
+    src/ui/cueaudiowidget.cpp
 
 HEADERS += \
         src/ui/mainwindow.h \
@@ -59,7 +62,10 @@ HEADERS += \
     src/ui/cuedatatablemodel.h \
     src/ui/editorcuetablemodel.h \
     src/ui/editortoolbarwidget.h \
-    src/ui/projecteditordialog.h
+    src/ui/projecteditordialog.h \
+    src/ui/cueeditwidget.h \
+    src/ui/cuemetawidget.h \
+    src/ui/cueaudiowidget.h
 
 FORMS +=
 
