@@ -37,6 +37,30 @@ Cue *CueListWidget::GetSelectedCue()
 	return nullptr;
 }
 
+int CueListWidget::GetRowIndex()
+{
+	QModelIndex currentIndex = m_view->currentIndex();
+	if(currentIndex.isValid()) {
+		return currentIndex.row();
+	}
+	return 0;
+}
+
+void CueListWidget::RefreshLayout()
+{
+	m_model->RefreshLayout();
+}
+
+void CueListWidget::RefreshData()
+{
+	m_model->RefreshData();
+}
+
+void CueListWidget::RefreshData(int from, int to)
+{
+	m_model->RefreshData(from, to);
+}
+
 void CueListWidget::handleCurrentRowChanged(
 	const QModelIndex &current, const QModelIndex &/*previous*/
 ) {

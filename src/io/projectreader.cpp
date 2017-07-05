@@ -49,7 +49,7 @@ Project *ProjectReader::ReadProject(QString filePath)
 
               Cue * cue = nullptr;
               if(cueType == Cue::audio) {
-                cue = new AudioCue(project);
+				cue = new AudioCue(nullptr, project);
               }
               project->AddCue(cue, cueCounter);
 

@@ -9,7 +9,7 @@ class AudioCue : public Cue, IRealCue
     Q_PROPERTY(QString FilePath READ FilePath WRITE SetFilePath)
 
 public:
-    explicit AudioCue(QObject *parent = nullptr);
+	explicit AudioCue(QString filePath, QObject *parent = nullptr);
 
 	QString FilePath() const override;
 	void SetFilePath(const QString &filePath) override;

@@ -55,3 +55,19 @@ void UiHelper::ShowOpenErorMsgBox(QWidget *parent)
 	);
 	msgBox.exec();
 }
+
+bool UiHelper::ShowOpenAudioDlg(QStringList *files, QWidget *parent)
+{
+	QFileDialog dlg(parent, Qt::WindowFlags());
+	dlg.setFileMode(QFileDialog::ExistingFiles);
+	dlg.setAcceptMode(QFileDialog::AcceptOpen);
+	dlg.setNameFilter(DIALOG_AUDIO_FILTER);
+	dlg.setNameFilterDetailsVisible(true);
+	if(dlg.exec() == QDialog::Accepted) {
+		*files = dlg.selectedFiles();
+		return true;
+	} else {
+		files = nullptr;
+		return false;
+	}
+}

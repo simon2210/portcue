@@ -11,6 +11,9 @@ class CueDataTableModel : public QAbstractTableModel
 public:
 	explicit CueDataTableModel(QObject *parent = nullptr);
 	void SetDataSource(QList<Cue *> *cues);
+	void RefreshLayout();
+	void RefreshData();
+	void RefreshData(int from, int to);
 
 	// QAbstractItemModel interface
 	QModelIndex index(int row, int column, const QModelIndex &parent) const;

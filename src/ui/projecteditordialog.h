@@ -22,6 +22,13 @@ public:
 
 private slots:
 	void handleSaveProjectClicked();
+	void handleAddAudioCueClicked();
+	void handleRemoveCueClicked();
+	void handleMoveUpClicked();
+	void handleMoveDownClicked();
+
+	void handleCueListChanged();
+	void handleCueMoved(int from, int to);
 
 private:
 	ProjectManager * m_projectManager = nullptr;

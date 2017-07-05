@@ -22,6 +22,10 @@ public:
 	);
 	void SetDataSource(QList<Cue *> * cues);
 	Cue * GetSelectedCue();
+	int GetRowIndex();
+	void RefreshLayout();
+	void RefreshData();
+	void RefreshData(int from, int to);
 
 signals:
 	void SelectedCueChanged(Cue * selectedCue);

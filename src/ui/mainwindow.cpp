@@ -38,6 +38,11 @@ MainWindow::MainWindow(QWidget *parent) :
 				qDebug(cue->Id().toLatin1());
 	});
 
+	connect(m_projectManager, &ProjectManager::CueAdded,
+			this, &MainWindow::handleCueListChanged);
+	connect(m_projectManager, &ProjectManager::CueRemoved,
+			this, &MainWindow::handleCueListChanged);
+
 	m_centralLayout->addWidget(m_cueListWidget);
 	this->setCentralWidget(m_centralWidget);
 }
@@ -57,17 +62,15 @@ void MainWindow::handleNewProjectClicked()
 
 		//TESTCODE
 		Project *project = m_projectManager->GetProject();
-		AudioCue * cue1 = new AudioCue(project);
-		AudioCue * cue2 = new AudioCue(project);
+		AudioCue * cue1 = new AudioCue("C:/1", project);
+		AudioCue * cue2 = new AudioCue("C:/2", project);
 
 		cue1->SetId("Q1");
 		cue1->SetDescription("CueNummerEins");
-		cue1->SetFilePath("C:/1");
 		cue1->SetPage("Page1");
 
 		cue2->SetId("Q2");
 		cue2->SetDescription("CueNummerZwei");
-		cue2->SetFilePath("C:/2");
 		cue2->SetPage("Page2");
 
 		m_projectManager->AddCue(cue1, 0);
@@ -114,6 +117,11 @@ void MainWindow::handleProjectLoaded()
 	m_cueListWidget->SetDataSource(project->Cues());
 	this->setWindowTitle(project->Name());
 	m_openEditorAct->setEnabled(true);
+}
+
+void MainWindow::handleCueListChanged()
+{
+	m_cueListWidget->RefreshLayout();
 }
 
 void MainWindow::createActions()

@@ -13,7 +13,25 @@ void CueDataTableModel::SetDataSource(QList<Cue *> *cues)
 	m_cues = cues;
 
 	if(!IsEmpty())
-		emit layoutChanged();
+		RefreshLayout();
+}
+
+void CueDataTableModel::RefreshLayout()
+{
+	emit layoutChanged();
+}
+
+void CueDataTableModel::RefreshData()
+{
+	if(!IsEmpty())
+		RefreshData(0, m_cues->length() -1);
+}
+
+void CueDataTableModel::RefreshData(int from, int to)
+{
+	QModelIndex topleft = index(from, 0, {});
+	QModelIndex bottomright = index(to, columnCount({}) -1, {});
+	emit dataChanged(topleft, bottomright);
 }
 
 QModelIndex CueDataTableModel::index(

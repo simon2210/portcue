@@ -4,29 +4,30 @@
 
 int main(int argc, char *argv[])
 {
-    // Create application
-    QApplication app(argc, argv);
+	// Create application
+	QApplication app(argc, argv);
 
-    // Set metadata
-    app.setApplicationName("portcue");
-    app.setApplicationVersion("0.1");
-    app.setApplicationDisplayName("Portcue");
-    app.setOrganizationDomain("TODO.de");
-    app.setOrganizationName("TODO");
-    app.setWindowIcon(QIcon(":/res/appicon.png"));
+	// Set metadata
+	app.setApplicationName("portcue");
+	app.setApplicationVersion("0.1");
+	app.setApplicationDisplayName("Portcue");
+	app.setOrganizationDomain("TODO.de");
+	app.setOrganizationName("TODO");
+	app.setWindowIcon(QIcon(":/res/appicon.png"));
 
-    // Load and apply stylesheet
-    QFile file(":/res/stylesheet.css");
-    file.open(QFile::ReadOnly);
-    QString styleSheet = QLatin1String(file.readAll());
-    app.setStyleSheet(styleSheet);
+	// Load and apply stylesheet
+	QFile file(":/res/stylesheet.css");
+	if(file.open(QFile::ReadOnly)) {
+		QString styleSheet = QLatin1String(file.readAll());
+		app.setStyleSheet(styleSheet);
+	}
 
-    // Create and show MainWindow
-    MainWindow window;
-    window.show();
+	// Create and show MainWindow
+	MainWindow window;
+	window.show();
 
-    // Exec application
-    return app.exec();
+	// Exec application
+	return app.exec();
 }
 
 //Known Bugs:
@@ -34,4 +35,5 @@ int main(int argc, char *argv[])
 
 //ToDo:
 // Editor vervollständigen (Add und Remove auch für MainCueList testen)
+// Up + Down geht nur einmal, weil selected List verloren geht
 // IEditable für Datenobjekte?

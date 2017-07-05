@@ -30,6 +30,7 @@ private slots:
     void handleOpenProjectClicked();
 	void handleProjectEditorClicked();
 	void handleProjectLoaded();
+	void handleCueListChanged();
 
 private:
 	void createActions();

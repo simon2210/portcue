@@ -25,6 +25,7 @@ public:
     void AddCue(Cue * cue, int index);
     void RemoveCue(int index);
     void RemoveCue(Cue * cue);
+	void MoveCue(Cue *cue, int newIndex);
 
     QString ProjectPath() const;
 
@@ -37,6 +38,7 @@ signals:
 
     void CueAdded(Cue * cue, int index);
     void CueRemoved();
+	void CueMoved(int from, int to);
 
 private:
     explicit ProjectManager(QObject *parent = nullptr) : QObject(parent) {}

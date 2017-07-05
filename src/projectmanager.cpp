@@ -99,7 +99,21 @@ void ProjectManager::RemoveCue(int index)
 void ProjectManager::RemoveCue(Cue *cue)
 {
     m_project->RemoveCue(cue);
-    emit CueRemoved();
+	emit CueRemoved();
+}
+
+void ProjectManager::MoveCue(Cue * cue, int newIndex)
+{
+	QList<Cue *> *cues = m_project->Cues();
+	if(newIndex < 0  || newIndex >= cues->length())
+		return;
+
+	int currentIdx = cues->indexOf(cue);
+
+	if(currentIdx >= 0) {
+		m_project->Cues()->move(currentIdx, newIndex);
+		emit CueMoved(currentIdx, newIndex);
+	}
 }
 
 QString ProjectManager::ProjectPath() const

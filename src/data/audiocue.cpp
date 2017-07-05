@@ -1,9 +1,7 @@
 #include "audiocue.h"
 
-AudioCue::AudioCue(QObject *parent) : Cue(parent)
-{
-
-}
+AudioCue::AudioCue(QString filePath, QObject *parent)
+	: Cue(parent), m_filePath(filePath) { }
 
 QString AudioCue::FilePath() const
 {

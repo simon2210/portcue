@@ -19,6 +19,9 @@ public:
 
 	static bool ShowOpenProjectDlg(QString * projectPath, QWidget * parent = nullptr);
 	static void ShowOpenErorMsgBox(QWidget * parent = nullptr);
+
+	static bool ShowOpenAudioDlg(QStringList * files, QWidget * parent = nullptr);
+
 private:
 	//Static class
 	UiHelper() : QObject(nullptr) { }
