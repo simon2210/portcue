@@ -78,18 +78,20 @@ void ProjectEditorDialog::handleRemoveCueClicked()
 void ProjectEditorDialog::handleMoveUpClicked()
 {
 	Cue * selectedCue = m_cueListWidget->GetSelectedCue();
-	int idx = m_cueListWidget->GetRowIndex();
+	int newIdx = m_cueListWidget->GetRowIndex() -1;
 	if(selectedCue != nullptr ){
-		m_projectManager->MoveCue(selectedCue, idx - 1);
+		m_projectManager->MoveCue(selectedCue, newIdx);
+		m_cueListWidget->SelectRow(newIdx);
 	}
 }
 
 void ProjectEditorDialog::handleMoveDownClicked()
 {
 	Cue * selectedCue = m_cueListWidget->GetSelectedCue();
-	int idx = m_cueListWidget->GetRowIndex();
+	int newIdx = m_cueListWidget->GetRowIndex() + 1;
 	if(selectedCue != nullptr ){
-		m_projectManager->MoveCue(selectedCue, idx + 1);
+		m_projectManager->MoveCue(selectedCue, newIdx);
+		m_cueListWidget->SelectRow(newIdx);
 	}
 }
 

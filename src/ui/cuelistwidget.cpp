@@ -37,6 +37,14 @@ Cue *CueListWidget::GetSelectedCue()
 	return nullptr;
 }
 
+void CueListWidget::SelectRow(int rowIdx)
+{
+	QModelIndex nextIdx = m_model->index(rowIdx, 0, {});
+	if(nextIdx.isValid()) {
+		m_view->setCurrentIndex(nextIdx);
+	}
+}
+
 int CueListWidget::GetRowIndex()
 {
 	QModelIndex currentIndex = m_view->currentIndex();
