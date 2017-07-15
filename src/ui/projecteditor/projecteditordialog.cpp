@@ -47,23 +47,19 @@ ProjectEditorDialog::ProjectEditorDialog(QWidget *parent)
 
 void ProjectEditorDialog::handleSaveProjectClicked()
 {
-	int rowIdx = m_cueListWidget->GetRowIndex();
-	Cue * tmpCue = m_cueListWidget->GetSelectedCue();
-	qDebug(QString::number(rowIdx).toLatin1());
-	qDebug(tmpCue->Id().toLatin1());
-//	if(m_projectManager->GetProject() == nullptr)
-//		return;
+	if(m_projectManager->GetProject() == nullptr)
+		return;
 
-//	QString projectPath = m_projectManager->ProjectPath();
+	QString projectPath = m_projectManager->ProjectPath();
 
-//	if(projectPath.isNull() || projectPath.isEmpty()) {
-//		if(!UiHelper::ShowSaveProjectDlg(&projectPath))
-//			return;
-//	}
+	if(projectPath.isNull() || projectPath.isEmpty()) {
+		if(!UiHelper::ShowSaveProjectDlg(&projectPath))
+			return;
+	}
 
-//	if(!m_projectManager->SaveProject(projectPath)) {
-//		UiHelper::ShowSaveErrorMsgBox();
-//	}
+	if(!m_projectManager->SaveProject(projectPath)) {
+		UiHelper::ShowSaveErrorMsgBox();
+	}
 }
 
 void ProjectEditorDialog::handleAddAudioCueClicked()
