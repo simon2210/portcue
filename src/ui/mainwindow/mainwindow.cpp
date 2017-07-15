@@ -1,6 +1,6 @@
 #include "maincuetablemodel.h"
 #include "mainwindow.h"
-#include "uihelper.h"
+#include "src/ui/uihelper.h"
 
 #include <QVBoxLayout>
 #include <QMediaPlayer>
@@ -8,7 +8,7 @@
 #include <QMessageBox>
 #include <QApplication>
 
-#include "projectcreationdialog.h"
+#include "src/ui/projectcreationdialog.h"
 #include "src/applicationconfig.h"
 #include "src/data/audiocue.h"
 #include "src/data/project.h"

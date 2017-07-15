@@ -25,7 +25,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         src/main.cpp \
-        src/ui/mainwindow.cpp \
+	src/ui/mainwindow/mainwindow.cpp \
     src/data/cue.cpp \
     src/data/project.cpp \
     src/io/projectwriter.cpp \
@@ -34,18 +34,18 @@ SOURCES += \
     src/projectmanager.cpp \
     src/ui/projectcreationdialog.cpp \
     src/ui/uihelper.cpp \
-    src/ui/maincuetablemodel.cpp \
+    src/ui/mainwindow/maincuetablemodel.cpp \
     src/ui/cuelistwidget.cpp \
     src/ui/cuedatatablemodel.cpp \
-    src/ui/editorcuetablemodel.cpp \
-    src/ui/editortoolbarwidget.cpp \
-    src/ui/projecteditordialog.cpp \
-    src/ui/cueeditwidget.cpp \
-    src/ui/cuemetawidget.cpp \
-    src/ui/cueaudiowidget.cpp
+    src/ui/projecteditor/editorcuetablemodel.cpp \
+    src/ui/projecteditor/editortoolbarwidget.cpp \
+    src/ui/projecteditor/projecteditordialog.cpp \
+    src/ui/projecteditor/cueeditwidget.cpp \
+    src/ui/projecteditor/cuemetawidget.cpp \
+    src/ui/projecteditor/cueaudiowidget.cpp
 
 HEADERS += \
-        src/ui/mainwindow.h \
+	src/ui/mainwindow/mainwindow.h \
     src/data/cue.h \
     src/data/project.h \
     src/io/projectwriter.h \
@@ -56,16 +56,16 @@ HEADERS += \
     src/ui/projectcreationdialog.h \
     src/applicationconfig.h \
     src/ui/uihelper.h \
-    src/ui/maincuetablemodel.h \
+    src/ui/mainwindow/maincuetablemodel.h \
     src/data/irealcue.h \
     src/ui/cuelistwidget.h \
     src/ui/cuedatatablemodel.h \
-    src/ui/editorcuetablemodel.h \
-    src/ui/editortoolbarwidget.h \
-    src/ui/projecteditordialog.h \
-    src/ui/cueeditwidget.h \
-    src/ui/cuemetawidget.h \
-    src/ui/cueaudiowidget.h
+    src/ui/projecteditor/editorcuetablemodel.h \
+    src/ui/projecteditor/editortoolbarwidget.h \
+    src/ui/projecteditor/projecteditordialog.h \
+    src/ui/projecteditor/cueeditwidget.h \
+    src/ui/projecteditor/cuemetawidget.h \
+    src/ui/projecteditor/cueaudiowidget.h
 
 FORMS +=
 

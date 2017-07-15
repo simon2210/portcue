@@ -2,7 +2,7 @@
 #define MAINCUETABLEMODEL_H
 
 #include "src/data/cue.h"
-#include "cuedatatablemodel.h"
+#include "src/ui/cuedatatablemodel.h"
 
 #define COL_COUNT 4
 

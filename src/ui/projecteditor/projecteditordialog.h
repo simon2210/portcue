@@ -3,8 +3,8 @@
 
 #include "src/projectmanager.h"
 #include "cueeditwidget.h"
-#include "cuelistwidget.h"
 #include "editortoolbarwidget.h"
+#include "src/ui/cuelistwidget.h"
 
 #include <QAction>
 #include <QDialog>

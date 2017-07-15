@@ -1,9 +1,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include "cuelistwidget.h"
-#include "editortoolbarwidget.h"
-#include "projecteditordialog.h"
+#include "src/ui/cuelistwidget.h"
+#include "src/ui/projecteditor/projecteditordialog.h"
 #include "src/projectmanager.h"
 
 #include <QGridLayout>
