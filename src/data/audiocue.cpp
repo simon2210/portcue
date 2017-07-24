@@ -5,15 +5,15 @@ AudioCue::AudioCue(QString filePath, QObject *parent)
 
 QString AudioCue::FilePath() const
 {
-    return m_filePath;
+	return m_filePath;
 }
 
 void AudioCue::SetFilePath(const QString &filePath)
 {
-    m_filePath = filePath;
+	m_filePath = filePath;
 }
 
 Cue::CueType AudioCue::Type()
 {
-    return Cue::audio;
+	return Cue::audio;
 }

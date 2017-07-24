@@ -9,13 +9,13 @@
 class ProjectWriter
 {
 public:
-    static bool WriteProject(
-        QString filePath, Project * project
-    );
+	static bool WriteProject(
+		QString filePath, Project * project
+	);
 
 private:
-    // Static class
-    ProjectWriter() {}
+	// Static class
+	ProjectWriter() {}
 };
 
 #endif // PROJECTWRITER_H

@@ -6,11 +6,11 @@
 class ProjectReader
 {
 public:
-    static Project * ReadProject(QString filePath);
+	static Project * ReadProject(QString filePath);
 
 private:
-    //Static class
-    ProjectReader() { }
+	//Static class
+	ProjectReader() { }
 };
 
 #endif // PROJECTREADER_H
